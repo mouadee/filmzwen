@@ -22,7 +22,8 @@
 
 
         <!-- Left Carousel Was deleted now !-->
- 
+        
+ {{-- We finishing Up Just To 30 April 2018 --}}
             
   <div class="carousel">
     <a class="carousel-item" href="#">
