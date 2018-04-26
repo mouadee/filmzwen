@@ -24,7 +24,9 @@
         <!-- Left Carousel Was deleted now !-->
         
  {{-- We finishing Up Just To 30 April 2018 --}}
-            
+
+
+
   <div class="carousel">
     <a class="carousel-item" href="#">
         <img src="imgs/run.jpg"><br>
@@ -206,6 +208,8 @@
                 <i class="fa fa-circle" aria-hidden="true"></i>
             </a>
         </section>
+
+
     <!-- This Is The Section Of The Arabic Films -->
         <section class="arabic_films">
             <ul>
