@@ -158,12 +158,14 @@
     </div>
     </div>
 
+    {{-- Start Comment Section --}}
+
      <div class="comment-users"><hr>
         <h3>التعليقات</h3>
         <hr>
         <span class="n-comment">17 تعليقا</span>
         <div class="write_comment">
-            <span class="username_comment">Monssif HOUISSIS</span>
+            <span class="username_comment">{{ Auth::user()->username }}</span>
             <img class="responsive-img user-img-comment" src="{{asset('imgs/avatar.png')}}" alt="">
             <button><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
             <input type="text" placeholder="أكتب تعليق">

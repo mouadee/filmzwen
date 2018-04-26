@@ -159,7 +159,7 @@
     </div>
 
 {{-- The Comment Of Facebook users --}}
-         <div id="fb-root"></div>
+      {{--    <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
@@ -169,15 +169,16 @@
     }(document, 'script', 'facebook-jssdk'));</script>
 
     <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="520" data-numposts="5">
-    </div>  
+    </div>   --}}
 
+{{-- start comment section --}}
 
      <div class="comment-users"><hr>
         <h3>التعليقات</h3>
         <hr>
         <span class="n-comment">17 تعليقا</span>
         <div class="write_comment">
-            <span class="username_comment">Monssif HOUISSIS</span>
+            <span class="username_comment">{{ Auth::user()->username }}</span>
             <img class="responsive-img user-img-comment" src="{{asset('imgs/avatar.png')}}" alt="">
             <button><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
             <input type="text" placeholder="أكتب تعليق">

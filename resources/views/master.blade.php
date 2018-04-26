@@ -116,7 +116,7 @@
         @guest
 
         <li>
-            <a href="register">إنشاء حساب
+            <a href="{{url('register')}}">إنشاء حساب
                 <img src="https://www.gulf-up.com/12-2017/1513767298261.png" alt="new_account_icon">
             </a>
         </li>
@@ -125,7 +125,7 @@
             <a href="#" id="loginform">تسجيل الدخول
                 <img src="https://www.gulf-up.com/12-2017/1513767337961.png" alt="my_account_icon">
             </a>
-            <form action="{{ route('login') }}" method="POST" autocomplete="off">
+            <form action="{{url('login')}}" method="POST" autocomplete="off">
                 {{ csrf_field() }}
                 <div class="login">
                     <div class="login_content">
@@ -185,7 +185,7 @@
                 </a>
             </li>
             <li class="nav-item dropdown">
-                <a href="profile" title="حسابي" class="dropdown-item">
+                <a href="{{url('profile')}}" title="حسابي" class="dropdown-item">
                     {{ Auth::user()->username }} <span class="caret"></span>
                     {{--<img src="imgs/avatars/{{ Auth::user()->avatar }}" style="width: 32px;height: 32px;position: absolute;top: 0px;border-radius: 50%;left: 90px;">--}}
                 </a>

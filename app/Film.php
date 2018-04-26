@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 class Film extends Model
 {
-    	use Notifiable;
+    use Notifiable;
 	
 
     protected $table = 'films';
