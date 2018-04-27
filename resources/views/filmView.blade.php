@@ -158,39 +158,42 @@
     </div>
     </div>
 
-    {{-- Start Comment Section --}}
+    {{-- Start Comments Section --}}
 
-     <div class="comment-users"><hr>
+
+
+     {{-- <div class="comment-users"><hr>
         <h3>التعليقات</h3>
         <hr>
         <span class="n-comment">17 تعليقا</span>
-        <div class="write_comment">
+
             <span class="username_comment">{{ Auth::user()->username }}</span>
-            <img class="responsive-img user-img-comment" src="{{asset('imgs/avatar.png')}}" alt="">
+       <form action="{{url('comment')}}" method="post">
+        @csrf
+            <div class="write_comment">
             <button><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-            <input type="text" placeholder="أكتب تعليق">
+            <input name="comment" type="text" placeholder="أكتب تعليق">
+            <img class="responsive-img user-img-comment" src="{{asset('imgs/avatar.png')}}" alt="">
         </div>
+       </form>
 
-        <div class="all_comment">
-            <i class="time-comment">مند ساعة</i>
-            <span class="auther-username_comment">Moad ELAZZAOUI</span>
-            <img class="responsive-img auther-user-img-comment" src="{{asset('imgs/avatar.png')}}" alt="">
-            <i class="fa fa-heart-o eart-comment" aria-hidden="true"></i>
-            <input disabled type="text" value="واش وزعما ما انتخلصوش ف هادشي ؟">
-        </div>
 
-        <div class="all_comment">
-            <i class="time-comment"><b>15</b>دقيقة </i>
-            <span class="auther-username_comment">Aziz AJARAF</span>
-            <img class="responsive-img auther-user-img-comment" src="{{asset('imgs/avatar.png')}}" alt="">
-            <i class="fa fa-heart eart-comment" aria-hidden="true"></i>
-            <input disabled type="text" value="اعلم الله بشحال د الجافاسكربت مخدوم هاد السيت">
+        @foreach($comment as $comments)
 
-        </div>
+            <div class="all_comment">
+                <span class="auther-username_comment">{{Auth::user()->username}}</span>
+                <input name="comment" disabled type="text" value="{{$comment->comment}}">
+                <img class="responsive-img auther-user-img-comment" src="{{ Auth::user()->avatar }}" alt="">
+                <i class="fa fa-heart-o eart-comment" aria-hidden="true"></i>
+                <i class="time-comment">مند ساعة</i>
+            </div>
+
+        @endforeach
+
         <br>
         <button class="btn btn-primary more-comment">
             <i class="fa fa-arrow-down" aria-hidden="true"></i>
 باقي التعليقات</button>
-    </div> 
+    </div>  --}}
 
     @endsection

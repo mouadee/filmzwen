@@ -1384,17 +1384,21 @@ i.fa.fa-exclamation-triangle {
 }
 .auther-username_comment {
     position: absolute;
-    left: 425px;
+    right: 489px;
+    direction: rtl;
+    text-align: right;
 }
 .comment-users span.n-comment {
     position: relative;
     right: 720px;
     bottom: 45px;
     text-align: left;
-}
-.write_comment input {
+}t 
+.write_commeninput {
     border: 1px solid red!important;
 }
+
+
 .all_comment input,
 .write_comment input {
     border-radius: 25px;
@@ -1402,14 +1406,14 @@ i.fa.fa-exclamation-triangle {
     min-width: 459px;
     height: 35px;
     position: relative;
-    right: 148px;
+    right: 150px;
     top: 8px;
     padding: 0 16px;
     text-align: right;
     font-size: 12px;
 }
 .write_comment input {
-
+   
 }
 .all_comment,
 .write_comment {
@@ -1417,9 +1421,9 @@ i.fa.fa-exclamation-triangle {
     margin: 25px auto;
 }
 span.username_comment {
-    position: relative;
-    bottom: 30px;
-    left: 113px;
+    position: absolute;
+    right: 495px;
+    margin: 49px 0;
 }
 .user-img-comment {
     position: relative;
@@ -1430,7 +1434,7 @@ span.username_comment {
 }
 .auther-user-img-comment {
     position: relative;
-    right: 167px;
+    right: 130px;
     border: 2px solid #CCC;
     border-radius: 50%;
     padding: 2px;
@@ -1443,8 +1447,9 @@ span.username_comment {
     color: #FFF;
     position: relative;
     top: 9px;
-    right: 110px;
+    right: 111px;
     z-index: 1;
+    cursor: pointer;
 }
 button.btn.btn-primary.more-comment {
     border-radius: 15px;
@@ -1462,16 +1467,16 @@ button.btn.btn-primary.more-comment:hover {
 .comment-users i.fa.fa-heart-o {
     color: #b70b14;
     position: absolute;
-    left: 437px;
-    margin: 47px -2px;
+    left: 330px;
+    margin: 47px 0px;
     z-index: 2;
 }
 .comment-users .time-comment {
     position: absolute;
-    left: 832px;
     font-size: 12px;
-    text-align: right;
-    direction: rtl;
+    position: absolute;
+    right: 890px;
+    font-size: 12px;
 }
 .infos_perso .inputfile {
     width: 0.1px;

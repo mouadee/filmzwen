@@ -1,6 +1,6 @@
 //! moment.js locale configuration
 //! locale : Bambara [bm]
-//! author : Estelle Comment : https://github.com/estellecomment
+//! author : Estelle Comments : https://github.com/estellecomment
 // Language contact person : Abdoufata Kane : https://github.com/abdoufata
 
 import moment from '../moment';

@@ -40,6 +40,7 @@ Route::get('film/{id}', 'filmView@show')->name('film.show');
 
 Route::post('profile', 'editProfile@store');
 Route::post('chPass', 'chPass@store');
+//Route::resource('comment', 'comment');
 
 Route::post('/user/update/{id}', 'editProfile@update');
 

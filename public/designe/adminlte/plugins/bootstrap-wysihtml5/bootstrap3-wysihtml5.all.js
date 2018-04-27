@@ -633,7 +633,7 @@ var wysihtml5 = {
 
         function isCharacterDataNode(node) {
             var t = node.nodeType;
-            return t == 3 || t == 4 || t == 8 ; // Text, CDataSection or Comment
+            return t == 3 || t == 4 || t == 8 ; // Text, CDataSection or Comments
         }
 
         function isTextOrCommentNode(node) {
@@ -641,7 +641,7 @@ var wysihtml5 = {
                 return false;
             }
             var t = node.nodeType;
-            return t == 3 || t == 8 ; // Text or Comment
+            return t == 3 || t == 8 ; // Text or Comments
         }
 
         function insertAfter(node, precedingNode) {
@@ -1411,7 +1411,7 @@ var wysihtml5 = {
                 if (node.nodeType == 1) {
                     el = node;
 
-                // "Text, Comment: node's parentElement"
+                // "Text, Comments: node's parentElement"
                 } else if (isCharacterDataNode(node)) {
                     el = dom.parentElement(node);
                 }
