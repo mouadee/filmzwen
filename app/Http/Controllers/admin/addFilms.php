@@ -56,7 +56,9 @@ class addFilms extends Controller
             $Film_poster                = request()->file('Film_poster')->store('public/users');
             $film->Film_poster          = \Storage::disk('local')->url($Film_poster);            
             $film->save();
-            return redirect()->back();
+            session()->flash('success', trans('admin.record_added'));
+            return redirect(aurl('admin'));
+            //return redirect()->back();
     }
 
     /**

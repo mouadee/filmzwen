@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\DataTables\usersDtatablesDataTable;
 use Illuminate\Http\Request;
+use App\User;
 
 class manageUsers extends Controller
 {
@@ -15,7 +16,8 @@ class manageUsers extends Controller
      */
     public function index(usersDtatablesDataTable $users)
     {
-        return $users->render('admin.users',['title'=>'Users Control']);
+        $title = trans('admin.users_control');
+        return $users->render('admin.users',['title'=>$title]);
     }
 
     /**
@@ -25,7 +27,7 @@ class manageUsers extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users_create',['title'=>trans('admin.Create_user')]);
     }
 
     /**
@@ -36,7 +38,32 @@ class manageUsers extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $this->validate(request(),[
+
+            'username' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+            'gender' => 'required',
+            'country' => 'required',
+            'name' => 'sometimes|nullable|min:6',
+            'avatar' => 'sometimes|nullable',
+            'phone' => 'sometimes|nullable',
+
+        ], [
+            'email.unique' => trans('admin.email_has_already_ben_taken'),
+            'email.required'  => trans('admin.email_required'),
+            'email.email'  => trans('admin.email_verefecation'),
+            'username.required'  => trans('admin.username_required'),
+            'gender.required'  => trans('admin.gender_required'),
+            'country.required'  => trans('admin.country_required'),
+            'password.min:6'  => trans('admin.password_muts_be_greater_than_6'),
+            'password.required'  => trans('admin.password_required'),
+        ]);
+
+        $data['password'] = bcrypt(request('password'));
+        User::create($data);
+        session()->flash('success', trans('admin.record_added'));
+        return redirect(aurl('users'));
     }
 
     /**
@@ -58,7 +85,9 @@ class manageUsers extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $title = trans('admin.edit_user');
+        return view('admin.edit_user', compact('user', 'title'));
     }
 
     /**
@@ -70,7 +99,38 @@ class manageUsers extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $this->validate(request(),[
+
+            'username' => 'required',
+            'email' => 'required|email|unique:users,email,' . $id,
+            'password' => 'sometimes|nullable|min:6',
+            'name' => 'sometimes|nullable|min:6',
+            'avatar' => 'sometimes|nullable',
+            'phone' => 'sometimes|nullable',
+            'country' => 'sometimes|nullable',
+            'gender' => 'sometimes|nullable',
+
+        ], [
+            'email.unique' => trans('admin.email_has_already_ben_taken'),
+            'email.required'  => trans('admin.email_required'),
+            'email.email'  => trans('admin.email_verefecation'),
+            'username.required'  => trans('admin.name_required'),
+            'password.min:6'  => trans('admin.password_muts_be_greater_than_6'),
+            'password'  => trans('admin.password_required'),
+        ], [
+
+            'username' => trans('admin.username'),
+            'email' => trans('admin.email'),
+            'password' => trans('admin.password'),
+
+        ]);
+       if (request()->has('password')) {
+        
+            $data['password'] = bcrypt(request('password'));
+       }
+        User::where('id', $id)->update($data);
+        session()->flash('success', trans('admin.updated_record'));
+        return redirect(aurl('users'));
     }
 
     /**
@@ -81,6 +141,8 @@ class manageUsers extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::find($id)->delete();
+        session()->flash('success', trans('admin.deleted_record'));
+        return redirect(aurl('users'));
     }
 }

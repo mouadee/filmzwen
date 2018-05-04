@@ -16,6 +16,7 @@ Route::group(['prefix' => 'admin', 'namespace'=>'admin'], function() {
 	Route::resource('addFilms', 'addFilms');
 	Route::resource('edit', 'editContent');
 	Route::resource('admin', 'ADminController');
+	Route::resource('comment', 'comment');
 		Route::get('/', function() {
 		    return view('admin/home');
 		});

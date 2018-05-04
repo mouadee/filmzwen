@@ -162,7 +162,7 @@
 
 
 
-     {{-- <div class="comment-users"><hr>
+     <div class="comment-users"><hr>
         <h3>التعليقات</h3>
         <hr>
         <span class="n-comment">17 تعليقا</span>
@@ -178,7 +178,7 @@
        </form>
 
 
-        @foreach($comment as $comments)
+   {{--      @foreach($comment as $comments)
 
             <div class="all_comment">
                 <span class="auther-username_comment">{{Auth::user()->username}}</span>
@@ -188,12 +188,12 @@
                 <i class="time-comment">مند ساعة</i>
             </div>
 
-        @endforeach
+        @endforeach --}}
 
         <br>
         <button class="btn btn-primary more-comment">
             <i class="fa fa-arrow-down" aria-hidden="true"></i>
 باقي التعليقات</button>
-    </div>  --}}
+    </div> 
 
     @endsection

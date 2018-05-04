@@ -54,9 +54,10 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
   <style>
-    *:not(i) {
+    *:not(i), .btn {
     font-family: 'DroidArabicKufiRegular', 'Open Sans', sans-serif;
     }
+
     #dataTableBuilder_wrapper .dt-buttons a {
       margin: 6px;
   }

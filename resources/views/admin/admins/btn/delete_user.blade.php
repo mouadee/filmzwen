@@ -16,7 +16,7 @@
         <h4 class="modal-title">{{trans('admin.delete')}}</h4>
       </div>
 
-		<form action="{{route('admin.destroy', $id)}}" method="post">
+		<form action="{{route('users.destroy', $id)}}" method="post">
 			@csrf
 			<input name="_method" type="hidden" value="DELETE">
 		      <div class="modal-body">

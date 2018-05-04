@@ -153,7 +153,7 @@
         <div class="pull-left image">
           <img src="{{ url('designe/adminlte') }}/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
-        <div class="pull-left info">
+        <div class="pull-right info">
           <p>{{ admin()->user()->name }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> {{ trans('admin.Online')}} </a>
         </div>

@@ -2,11 +2,12 @@
 
 namespace App\DataTables;
 
-use App\User;
-use App\DataTables\usersDtatablesDataTable;
+use App\DataTables\commentDataTable;
 use Yajra\DataTables\Services\DataTable;
+use App\User;
+use App\Comments;
 
-class usersDtatablesDataTable extends DataTable
+class commentDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -15,18 +16,15 @@ class usersDtatablesDataTable extends DataTable
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
+
     {
         return datatables($query)
-            ->addColumn('edit', 'admin.admins.btn.edit_user')
-            ->editColumn('updated_at', '{{ admin()->user()->updated_at->diffForHumans() }}')
             ->editColumn('created_at', '{{ admin()->user()->created_at->diffForHumans() }}')
             ->addColumn('delete', 'admin.admins.btn.delete_user')
             ->rawColumns([
-                'edit',
                 'delete',
             ]);
-            
-    }   
+    }
 
     /**
      * Get query source of dataTable.
@@ -34,9 +32,9 @@ class usersDtatablesDataTable extends DataTable
      * @param \App\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(User $model)
+    public function query(Comments $model)
     {
-        return User::query();
+        return Comments::query();
     }
 
     /**
@@ -55,12 +53,7 @@ class usersDtatablesDataTable extends DataTable
                         'dom' => 'Blfrtip',
                         'lenghtMenu' => [[10,25,50,100], [10,25,50,'All Records']],
                         'buttons' => [
-                            ['extend' => 'print', 'className'=>'btn btn-primary', 'text' => '<i class="fa fa-print"></i>'.trans("admin.print")],
-                            ['extend' => 'csv', 'className'=>'btn btn-success', 'text' => '<i class="fa fa-file"></i>' .trans("admin.ex_csv")],
-                            ['extend' => 'reload', 'className'=>'btn btn-danger', 'text' => '<i class="fa fa-refresh"></i>' .trans("admin.Reload")],
-                            ['text' => '<a class="fa fa-plus" href="{{aurl("create_user")}}"></a>' . trans('admin.Create_user'),'className'=>'btn btn-info',"action"=>"function(){
-                                    window.location.href = '" .\URL::current(). "/create'
-                            }"],
+                            ['extend' => 'reload', 'className'=>'btn btn-success', 'text' => '<i class="fa fa-refresh"></i>' . ' ' .trans("admin.Reload")],
                         ],
                         
                         'language' => [ 
@@ -104,33 +97,17 @@ class usersDtatablesDataTable extends DataTable
                 'data'  => 'id',
                 'title' => trans('admin.ID'),
             ],[
-                'name'  => 'username',
-                'data'  => 'username',
-                'title' => trans('admin.username'),
+                'name'  => 'comment',
+                'data'  => 'comment',
+                'title' => trans('admin.comment'),
             ],[
-                'name'  => 'email',
-                'data'  => 'email',
-                'title' => trans('admin.email'),
-            ],[
-                'name'  => 'country',
-                'data'  => 'country',
-                'title' => trans('admin.country'),
-            ],[
-                'name'  => 'gender',
-                'data'  => 'gender',
-                'title' => trans('admin.gender'),
+                'name'  => 'comment_id',
+                'data'  => 'comment_id',
+                'title' => trans('admin.comment.id'),
             ],[
                 'name'  => 'created_at',
                 'data'  => 'created_at',
                 'title' => trans('admin.created_at'),
-            ],[
-                'name'          => 'edit',
-                'data'          => 'edit',
-                'title'         => trans('admin.edit'),
-                'export table'  => false,
-                'print table'   => false,
-                'ordrerable'    => false,
-                'searchable'    => false,
             ],[
                 'name'          => 'delete',
                 'data'          => 'delete',
@@ -150,6 +127,6 @@ class usersDtatablesDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'usersDtatables_' . date('YmdHis');
+        return 'comment_' . date('YmdHis');
     }
 }

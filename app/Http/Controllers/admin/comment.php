@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
+use App\DataTables\commentDataTable;
 use Illuminate\Http\Request;
-use App\User;
-use App\Comments;
+
+
 
 class comment extends Controller
 {
@@ -15,10 +15,13 @@ class comment extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(commentDataTable $comment)
     {
-       //return view('home');
+        $title = trans('admin.comment');
+        return $comment->render('admin.comment',['title'=> $title]);
+        //return view('admin.comment', compact('title'));
     }
+
 
     /**
      * Show the form for creating a new resource.

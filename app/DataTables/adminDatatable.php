@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Admin;
+use App\Comments;
 use App\DataTables\adminDatatable;
 use Yajra\DataTables\Services\DataTable;
 
@@ -61,7 +62,9 @@ class adminDatatable extends DataTable
                             ['extend' => 'print', 'className'=>'btn btn-primary', 'text' => '<i class="fa fa-print"></i>'.trans("admin.print")],
                             ['extend' => 'csv', 'className'=>'btn btn-success', 'text' => '<i class="fa fa-file"></i>' .trans("admin.ex_csv")],
                             ['extend' => 'reload', 'className'=>'btn btn-danger', 'text' => '<i class="fa fa-refresh"></i>' .trans("admin.Reload")],
-                            ['text' => '<i class="fa fa-plus"></i>' . trans('admin.Create_Admin'),'className'=>'btn btn-info'],
+                            ['text' => '<i class="fa fa-plus"></i>' . trans('admin.Create_Admin'),'className'=>'btn btn-info',"action"=>"function(){
+                                    window.location.href = '" .\URL::current(). "/create'
+                            }"],
                         ],
                         
                         'language' => [ 

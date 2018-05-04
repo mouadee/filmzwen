@@ -1,6 +1,5 @@
 @include('admin.layouts.header')
 @include('admin.layouts.nav')
-@include('admin.layouts.message')
 
 
 
@@ -19,10 +18,10 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
-      	@include('admin/layouts.message')
-      	@yield('content')
-    </section>
+      <section class="content">
+        @include('admin.layouts.message')
+        @yield('content')
+     </section>
     <!-- /.content -->
   </div>
 
