@@ -86,14 +86,10 @@ class editProfile extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {   
-
+    {
         $data = $request->all();
-
         Auth::user()->update($data);
-
-        return redirect()->back();
-
+        return redirect()->back()->with('success', 'password changed');
     }
 
     /**

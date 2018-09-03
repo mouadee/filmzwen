@@ -91,5 +91,11 @@ $(document).mouseup(function (e)
 
 // });
 
+new Vue({
+    el:'#app',
+    data: {
+        message:'salut les gens',
+        link:'https://google.com'
 
-
+    }
+})

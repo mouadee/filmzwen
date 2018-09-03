@@ -20,31 +20,8 @@
             <button class="btn btn-danger" type="submit">شاهد الان مجانا</button>
         </div>
 
-        <!-- Left Carousel -->
-        <div class="left-carousel">
-            <div class="carousel">
-                <a class="carousel-item" href="#one">
-                    <img src="imgs/bright.jpg">
-                    <div class="infos">
-                        <span>span</span>
-                        <span>span</span>
-                        <span>span</span>
-                        <span>span</span>
-                        <span>span</span>
-                    </div>
-                </a>
-                <a class="carousel-item" href="#two">
-                    <img src="imgs/yy.jpg">
-                    <div class="infos">
-                        <span>span</span>
-                        <span>span</span>
-                        <span>span</span>
-                        <span>span</span>
-                        <span>span</span>
-                    </div>
-                </a>
-            </div>
-        </div></div>
+
+    </div>
     <span class="title_categorie_films">افلام عربية</span>
     <section class="films_pages">
 {{-- Section When We Found All Film Details --}}
@@ -78,57 +55,36 @@
                 <option value="all_type">خيال علمي</option></select>
             <select>
                 <option value="" disabled selected>السنة</option>
-                <option value="all_type">2018</option>
-                <option value="all_type">2017</option>
-                <option value="all_type">2016</option>
-                <option value="all_type">2015</option>
-                <option value="all_type">2014</option>
-                <option value="all_type">2013</option>
-                <option value="all_type">2012</option>
-                <option value="all_type">2011</option>
-                <option value="all_type">2010</option>
-                <option value="all_type">2009</option>
-                <option value="all_type">2008</option></select>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+                <option value="2012">2012</option>
+                <option value="2011">2011</option>
+                <option value="2010">2010</option>
+                <option value="2009">2009</option>
+                <option value="2008">2008</option>
+            </select>
             <span class="new-films-span">الأحدث</span>
-            <span class="most-watched-films">الأكثر رواجا</span></div>
+            <span class="most-watched-films">الأكثر رواجا</span>
+        </div>
         <!-- Content Of Arabic Films -->
-        <ul>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li></ul>
-        <ul>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li></ul>
-        <ul>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li></ul>
-        <ul>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li></ul>
-        <ul>
-            <span class="title_categorie">مسلسلات</span>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li>
-            <li>@yield('infos_details')</li></ul>
+        <div class="arFilmsContent">
+            <ul>
+                <li>@yield('infos_details')</li>
+                <li>@yield('infos_details')</li>
+                <li>@yield('infos_details')</li>
+                <li>@yield('infos_details')</li>
+                <li>@yield('infos_details')</li>
+                <li>@yield('infos_details')</li>
+            </ul>
+
+        </div>
     </section>
+
+
     {{-- Pagination Of The Page --}}
     <nav class="pagination-label" aria-label="...">
         <ul class="pagination">
@@ -143,8 +99,8 @@
             <li class="page-item">
                 <a class="page-link" href="#">التالي</a>
             </li>
-        </ul></nav>
+        </ul>
+    </nav>
     {{-- The ADS Showen In The Right Of The Page --}}
-    <img src="imgs/adset.png" class="left_adset" alt="adset">
-
+    {{--<img src="imgs/adset.png" class="left_adset" alt="adset">--}}
 @endsection

@@ -30,6 +30,10 @@ class Play extends Model
         'Film_ring',
         'Film_productionYears',
     ];
+    public function comments()
+    {
+        return $this->hasMany(Comments::class);
+    }
 }
 
 

@@ -29,4 +29,9 @@ class Film extends Model
         'Film_productionYears',
         'Film_language',
     ];
+
+    public function comments()
+    {
+        return $this->hasMany(Comments::class);
+    }
 }

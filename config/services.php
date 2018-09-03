@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 return [
 
@@ -33,6 +33,17 @@ return [
         'model' => App\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
+    ],
+
+    'facebook' => [
+        'client_id' => '1674035859344113',         // Your Facebook Client ID
+        'client_secret' => 'baf862a6706bf65347aaa45d49b10a02', // Your Facebook Client Secret
+        'redirect' => 'http://localhost:8000/login/facebook',
+    ],
+    'google' => [
+        'client_id' => '758270752880-s3j29tv5dnhg115potgm0q25pehm7el3.apps.googleusercontent.com',
+        'client_secret' => '3GndlUA2QkLXnJ6KiMB7gV0V',
+        'redirect' => 'http://localhost:8000/login/google',
     ],
 
 ];

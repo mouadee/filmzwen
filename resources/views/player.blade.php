@@ -2,6 +2,27 @@
 
 @section('content')
 
+    <style>
+        /* This style is Cause i use 1 page of style and 1 class of the 2 pages */
+        .errors-report,
+        .share {
+            top: 800px;
+        }
+        .feedback-share p {
+            margin: 4px 160px;
+        }
+        .heart_give_feedback {
+            position: relative;
+            bottom: 15px;
+            right: 40px;
+        }
+        footer {
+            width: 100vw;
+            position: absolute;
+            right: 0;
+        }
+    </style>
+
     <div class="slider">
         <!--  Carousel  -->
 
@@ -21,7 +42,7 @@
                         <span class="production_years">({{$play->Film_productionYears}})</span>
                         {{$play->Film_title}}
                     </h1>
-                    <p>{{$play->Film_Description}}</p>
+                    <p>{{ str_limit($play->Film_Description, 220, '...') }}</p>
                 </div>
                 <div class="actors-info">
                     <div class="maker">
@@ -68,6 +89,9 @@
                     <p>قيم <p/>
                     <p> هذا</p>
                 </span>
+
+                </div>
+                <div class="heart_give_feedback">
                     <i class="fa fa-heart-o" aria-hidden="true"></i>
                     <span>4.5</span>
                     <i class="fa fa-heart" aria-hidden="true"></i>
@@ -90,6 +114,16 @@
                         </div>-->
                             <i class="fa fa-facebook" aria-hidden="true"></i>
                     </a>
+                    <a class="twitter-share-button"
+                       href="https://twitter.com/share"
+                       data-size="large"
+                       data-text="custom share text"
+                       data-url="https://dev.twitter.com/web/tweet-button"
+                       data-hashtags="example,demo"
+                       data-via="twitterdev"
+                       data-related="twitterapi,twitter">
+                        Tweet
+                    </a>
                     <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
                     <a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a>
                     <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -106,17 +140,17 @@
         <div class="quality">
             <div class="for-watching">
              <span>الجودة المتوفرة للمشاهدة</span><br><br>
-             <a href=""><button class="btn btn-danger">1080p HD</button></a><br>
-             <a href=""><button class="btn btn-danger">1080p HD</button></a><br>
-             <a href=""><button class="btn btn-danger">480p HD</button></a><br>
-             <a href=""><button class="btn btn-danger">480p HD</button></a><br>
+             <a href="{{$play->Film_quality}}"><button class="btn btn-danger">1080p HD</button></a><br>
+             <a href="{{$play->Film_quality}}"><button class="btn btn-danger">720p HD</button></a><br>
+             <a href="{{$play->Film_quality}}"><button class="btn btn-danger">480p HD</button></a><br>
+             <a href="{{$play->Film_quality}}"><button class="btn btn-danger">360p HD</button></a><br>
             </div><br>
             <div class="for-download">
                <span> الجودة المتوفرة للتحميل</span><br><br>
-               <a href=""><button class="btn btn-success">1080p HD</button></a><br>
-                <a href=""><button class="btn btn-success">1080p HD</button></a><br>
-                <a href=""><button class="btn btn-success">480p HD</button></a><br>
-                <a href=""><button class="btn btn-success">480p HD</button></a><br>
+               <a href="{{$play->Film_download}}"><button class="btn btn-success">1080p HD</button></a><br>
+                <a href="{{$play->Film_download}}"><button class="btn btn-success">720p HD</button></a><br>
+                <a href="{{$play->Film_download}}"><button class="btn btn-success">480p HD</button></a><br>
+                <a href="{{$play->Film_download}}"><button class="btn btn-success">360p HD</button></a><br>
             </div>
         </div>
         <div class="night_mode">
@@ -170,45 +204,64 @@
 
     <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="520" data-numposts="5">
     </div>   --}}
+        {{-- Start Comments Section --}}
 
-{{-- start comment section --}}
 
-     <div class="comment-users"><hr>
-        <h3>التعليقات</h3>
-        <hr>
-        <span class="n-comment">17 تعليقا</span>
 
-            <span class="username_comment">{{ Auth::user()->username }}</span>
-        <form action="{{url('comment')}}" method="post">
-        @csrf
-            <div class="write_comment">
-            <button><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-            <input name="comment" type="text" placeholder="أكتب تعليق">
-            <img class="responsive-img user-img-comment" src="{{asset('imgs/avatar.png')}}" alt="">
+        <div class="comment-users"><hr>
+            <h3>التعليقات</h3>
+            <hr>
+            @guest
+                <h5 class="text-center">قم بتسجيل الدخول للتفاعل و وضع تعليق</h5>
+                <div class="social-login text-center">
+                    <h6>: أو قم بالتسجيل عبر</h6>
+                    <a href="../login/facebook">
+                        <button class="btn btn-success facebook">
+                            <span>باستخدام فيسبوك</span>
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </button>
+                    </a>
+
+                    <a href="{{route('google.login')}}">
+                        <button class="btn btn-danger google">
+                            <span>باستخدام جوجل</span>
+                            <i class="fa fa-google" aria-hidden="true"></i>
+                        </button>
+                    </a>
+                </div>
+            @else
+                <span class="n-comment">
+                <b>{{\App\Comments::count()}}</b>
+                <i>تعليق</i>
+            </span>
+
+                <span class="username_comment">{{Auth::user()->username}}</span>
+                <form action="{{route('comments.store',  $film->id)}}" method="post">
+                    @csrf
+                    <div class="write_comment">
+                        <button type="submit"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                        <input name="comment" type="text" placeholder="أكتب تعليق">
+                        <img class="responsive-img user-img-comment" src="{{url('imgs/avatars/') . '/' . Auth::user()->avatar}}" alt="">
+                    </div>
+                </form>
+
+                @foreach($film->comments as $comment)
+                    <div class="all_comment">
+                        <span class="auther-username_comment">{{$comment->user->username}}</span>
+                        <input disabled type="text" value="{{str_limit($comment->comment, 60, ".")}}">
+                        <img class="responsive-img auther-user-img-comment" src="{{url('imgs/avatars/') . '/' .$comment->user->avatar}}" alt="avatar">
+                        <i class="fa fa-heart-o eart-comment" aria-hidden="true"></i>
+                        <i class="time-comment">{{$comment->created_at->diffForHumans()}}</i>
+                    </div>
+                @endforeach
+
+                <br>
+                <button class="btn btn-primary more-comment">
+                    <i class="fa fa-arrow-down" aria-hidden="true"></i>باقي التعليقات
+                </button>
         </div>
-       </form>
+    </div>
 
-
-        <div class="all_comment">
-            <span class="auther-username_comment">Moad ELAZZAOUI</span>
-            <input disabled type="text" value="واش وزعما ما انتخلصوش ف هادشي ؟">
-            <img class="responsive-img auther-user-img-comment" src="{{asset('imgs/avatar.png')}}" alt="">
-            <i class="fa fa-heart-o eart-comment" aria-hidden="true"></i>
-            <i class="time-comment">مند ساعة</i>
-        </div>
-
-        <div class="all_comment">
-            <span class="auther-username_comment">Moad ELAZZAOUI</span>
-            <input disabled type="text" value="واش وزعما ما انتخلصوش ف هادشي ؟">
-            <img class="responsive-img auther-user-img-comment" src="{{asset('imgs/avatar.png')}}" alt="">
-            <i class="fa fa-heart-o eart-comment" aria-hidden="true"></i>
-            <i class="time-comment">مند ساعة</i>
-        </div>
-
-        <br>
-        <button class="btn btn-primary more-comment">
-            <i class="fa fa-arrow-down" aria-hidden="true"></i>
-باقي التعليقات</button>
-    </div> 
+    @endguest
 
     @endsection

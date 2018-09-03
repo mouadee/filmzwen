@@ -1,3 +1,5 @@
+
+
 /*@font-face {*/
 
 
@@ -6,6 +8,7 @@
 
 /*src: url("../fonts/Noto Kufi Arabic.ttf");*/
 
+/* main color #dc3545 */
 
 /*}*/
 
@@ -130,6 +133,7 @@ span.hidden {
 .infos-perso img {
     width: 70px;
     margin-bottom: 15px;
+    border-radius: 50%;
 }
 
 .suv-nav span {
@@ -414,7 +418,7 @@ img.logo-youtube{
 
 .search {
     position: absolute;
-    top: 70px;
+    top: 80px;
     z-index: 2;
     left: 490px;
 }
@@ -429,8 +433,8 @@ img.logo-youtube{
     cursor: pointer;
 }
 
-.search input {
-    margin: 30px -47px;
+.search input[type='search'] {
+    margin: 30px -100px;
     font-family: 'DroidArabicKufiRegular', 'Open Sans', sans-serif;
     width: 484px;
     text-align: right;
@@ -440,12 +444,24 @@ img.logo-youtube{
     padding: 5px 12px;
     font-size: 12px;
 }
-
-.watch button {
-    margin: -20px auto;
+.search input[type='submit'] {
+    background-color: transparent;
+    border: none;
     position: relative;
-    left: 587px;
-    bottom: 149px;
+    right: 380px;
+    opacity: 0;
+    width: 10px
+}
+.search .searchBarIcon {
+    position: relative;
+    right: 400px;
+    top: 1px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.watch {
+    margin: 0 auto;
     border-radius: 24px;
     width: 188px;
     background: #FA0001;
@@ -453,11 +469,9 @@ img.logo-youtube{
     cursor: pointer;
     z-index: auto;
     font-family: 'DroidArabicKufiRegular'!important;
-}
-
-.watch {
-    position: absolute;
-    z-index: 2;
+    display: block;
+    position: relative;
+    bottom: 150px;
 }
 
 .img-slider {
@@ -582,14 +596,14 @@ a.carousel-item {
     text-decoration: none;
 }
 */
-section.films_pages {
-    position: relative;
-    bottom: 325px;
-}
 section.films_pages ul {
     list-style: none;
     margin-left: 40px;
     padding: 30px 0;
+}
+
+.arFilmsContent {
+    margin: 100px 0;
 }
 
 .carousel-item span {
@@ -644,9 +658,9 @@ section.films_pages ul {
 .meniature_content:hover .film_meniature_infos,
 #carousel .carousel_content:hover .carousel_infos {
     visibility: visible;
-    opacity : 1; 
+    opacity : 1;
     animation: fadeIn .5s ease-in both;
-  
+
 }
 a.content_name {
     margin: 0 auto;
@@ -1028,18 +1042,24 @@ input.save_infos {
 button.btn.btn-success.facebook,
 button.btn.btn-danger.google{
     width: 180px;
-    height: 33px;
+    height: 40px;
     outline: none!important;
     border: none;
     cursor: pointer;
-    margin: 0 5px;
+    margin: 0 15px;
     padding: 0;
 }
-.login_with button.btn.btn-success.facebook {
+.login_with button.btn.btn-success.facebook,
+.social-login button.btn.btn-success.facebook {
     background: #3b5998;
 }
-.login_with button.btn.btn-danger.google {
+.login_with button.btn.btn-danger.google,
+.social-login button.btn.btn-danger.google {
     background: #DB4437;
+}
+.social-login a{
+    font-size: 0px;
+
 }
 .login_with {
     margin: 0 auto;
@@ -1048,10 +1068,13 @@ button.btn.btn-danger.google{
     position: relative;
     top: 630px;
 }
-.login_with h4 {
+.login_with h5 {
     text-align: center;
     margin: 10px 110px;
     font-family: 'DroidArabicKufiRegular', 'Open Sans', sans-serif;
+}
+.login_with span {
+    font-weight: normal;
 }
 .edit_profile .login-left a {
     color: #000;
@@ -1114,7 +1137,7 @@ img.left_adset {
 .adsetonleft {
     width: 16%;
     position: absolute;
-    margin: 0 1072px;
+    margin: 0 1057px;
 }
 
 .warn,
@@ -1185,8 +1208,6 @@ a.save-pass {
     top: 25px;
 }
 .pagination-label {
-    position: relative;
-    bottom: 160px;
     margin: 0 auto;
     display: table;
 }
@@ -1265,10 +1286,10 @@ a.save-pass {
     line-height: 1.4;
 }
 .feedback .givefeed {
-     position: absolute;
-     top: 1032px;
-     left: 121px;
- }
+    position: absolute;
+    top: 990px;
+    left: 121px;
+}
 .feedback {
     margin: 0 45px;
 }
@@ -1294,7 +1315,7 @@ i.fa.fa-exclamation-triangle {
     text-align: left;
     position: absolute;
     left: 240px;
-    top: 825px;
+    top: 790px;
 }
 .share button {
     border: none;
@@ -1308,7 +1329,7 @@ i.fa.fa-exclamation-triangle {
 .errors-report {
     text-align: center;
     position: absolute;
-    top: 828px;
+    top: 790px;
     right: 600px;
 }
 .share i.fa.fa-facebook {
@@ -1329,8 +1350,8 @@ i.fa.fa-exclamation-triangle {
 .quality {
     text-align: center;
     position: absolute;
-    top: 930px;
-    left: 10px;
+    top: 860px;
+    left: 18px;
 }
 .quality button,
 .films-ring button {
@@ -1392,8 +1413,11 @@ i.fa.fa-exclamation-triangle {
     position: relative;
     right: 720px;
     bottom: 45px;
-    text-align: left;
-}t 
+}
+.comment-users span.n-comment b {
+    margin-right: -65px;
+}
+
 .write_commeninput {
     border: 1px solid red!important;
 }
@@ -1403,7 +1427,8 @@ i.fa.fa-exclamation-triangle {
 .write_comment input {
     border-radius: 25px;
     border: 1px solid #CCC;
-    min-width: 459px;
+    min-width: 470px;
+    max-height: 70px;
     height: 35px;
     position: relative;
     right: 150px;
@@ -1413,7 +1438,7 @@ i.fa.fa-exclamation-triangle {
     font-size: 12px;
 }
 .write_comment input {
-   
+
 }
 .all_comment,
 .write_comment {
@@ -1431,6 +1456,7 @@ span.username_comment {
     border: 2px solid #CCC;
     border-radius: 50%;
     padding: 2px;
+    width: 87px;
 }
 .auther-user-img-comment {
     position: relative;
@@ -1438,6 +1464,7 @@ span.username_comment {
     border: 2px solid #CCC;
     border-radius: 50%;
     padding: 2px;
+    width: 87px;
 }
 .all_comment button,
 .write_comment button {
@@ -1537,4 +1564,20 @@ form .uploads-img-user {
     width: 90px;
     height: 20px
 }
+.all_content {
+    margin: 500px 0;
+    margin-bottom: 0;
+}
 
+.enFilmsContent {
+    width: 90%;
+}
+section.films ul li ul li a,
+section.series ul li ul li a,
+section.arabic_films ul li ul li a {
+    text-decoration: none;
+    color: #5f5f5f;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold!important;
+}

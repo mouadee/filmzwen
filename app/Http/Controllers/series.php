@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Play;
 
-
 class series extends Controller
 {
     /**
@@ -16,7 +15,7 @@ class series extends Controller
     public function index()
     {
 
-        $plays = Play::get();
+        $plays = Play::paginate(24);
         return view('series', compact('plays'));
     }
 

@@ -2,9 +2,7 @@
 
 namespace App\DataTables;
 
-use App\DataTables\commentDataTable;
 use Yajra\DataTables\Services\DataTable;
-use App\User;
 use App\Comments;
 
 class commentDataTable extends DataTable
@@ -20,7 +18,7 @@ class commentDataTable extends DataTable
     {
         return datatables($query)
             ->editColumn('created_at', '{{ admin()->user()->created_at->diffForHumans() }}')
-            ->addColumn('delete', 'admin.admins.btn.delete_user')
+            ->addColumn('delete', 'admin.admins.btn.delete_comment')
             ->rawColumns([
                 'delete',
             ]);
@@ -100,10 +98,6 @@ class commentDataTable extends DataTable
                 'name'  => 'comment',
                 'data'  => 'comment',
                 'title' => trans('admin.comment'),
-            ],[
-                'name'  => 'comment_id',
-                'data'  => 'comment_id',
-                'title' => trans('admin.comment.id'),
             ],[
                 'name'  => 'created_at',
                 'data'  => 'created_at',

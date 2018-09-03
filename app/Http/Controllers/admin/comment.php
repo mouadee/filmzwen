@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Comments;
 use App\Http\Controllers\Controller;
 use App\DataTables\commentDataTable;
 use Illuminate\Http\Request;
-
 
 
 class comment extends Controller
@@ -15,11 +15,14 @@ class comment extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /**
+     *
+     *
+     */
     public function index(commentDataTable $comment)
     {
         $title = trans('admin.comment');
         return $comment->render('admin.comment',['title'=> $title]);
-        //return view('admin.comment', compact('title'));
     }
 
 
@@ -41,12 +44,7 @@ class comment extends Controller
      */
     public function store(Request $request)
     {
-        // $comment = new Comments;
-        // $comment->comment = $request->comment;
-        // //$comment->heartFeedback = $request->heartFeedback;
-        // $comment->comment_id = Auth::user()->id;
-        // $comment->save();
-        // redirect()->back()->with('comment');
+        //
     }
 
     /**
@@ -91,6 +89,9 @@ class comment extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delcomment = Comments::find($id);
+        $delcomment->delete();
+        session()->flash('success', trans('admin.deleted_record'));
+        return redirect(aurl('comment'));
     }
 }

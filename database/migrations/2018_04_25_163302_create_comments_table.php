@@ -17,13 +17,14 @@ class CreateCommentsTable extends Migration
             $table->increments('id');
             $table->text('comment');
             $table->integer('heartFeedback');
-            $table->unsignedInteger('comment_id');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('film_id');
             $table->timestamps();
 
         });
         Schema::table('comments', function (Blueprint $table) {
 
-            $table->foreign('comment_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

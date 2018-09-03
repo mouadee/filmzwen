@@ -30,20 +30,19 @@
         <input name="password_confirmation" type="password" placeholder="أعد إدخال كلمة المرور" value="{{ old('password_confirmation') }}">
         <label>أعد إدخال كلمة المرور</label><br>
 
-ا
 
         <input type="submit" value="تسجيل" class="save_infos" name="submit">
 
     </form>
     <div class="login_with">
-        <h4>: أو قم بالتسجيل عبر</h4>
+        <h5>: أو قم بالتسجيل عبر</h5>
         <button class="btn btn-success facebook">
             <span>الدخول عبر فيسبوك</span>
             <i class="fa fa-facebook" aria-hidden="true"></i>
         </button>
         <button class="btn btn-danger google">
-            <span><b>+</b>الدخول عبر جوجل </span>
-            <i class="fa fa-google-plus" aria-hidden="true"></i>
+            <span>الدخول عبر جوجل</span>
+            <i class="fa fa-google" aria-hidden="true"></i>
         </button>
     </div>
     <script>
@@ -54,7 +53,7 @@
                 title: "!خطأ",
                 text: "!المرجو التأكد من صحة البيانات",
                 icon: "error",
-                button: "الرجوع",
+                button: "الرجوع"
             });
         }
     </script>

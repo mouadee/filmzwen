@@ -43,7 +43,7 @@
 </style>
 
     <div class="content">
-        <div class="title m-b-md" style="font-family: font-family: 'DroidArabicKufiRegular', 'Open Sans', sans-serif;;">
+        <div class="title m-b-md" style="font-family: font-family: 'DroidArabicKufiRegular', 'Open Sans', sans-serif;">
            Nothing To Show Here !!
         </div>
     </div>

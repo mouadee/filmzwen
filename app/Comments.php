@@ -10,7 +10,17 @@ class Comments extends Model
     
     protected $fillable = [
     	'comment',
-    	'comment_id',
+    	'film_id',
     	'heartFeedback',
+    	'user_id',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

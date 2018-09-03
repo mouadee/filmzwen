@@ -66,7 +66,12 @@
             </div>
           </div>
         </div>
-        <!-- ./col -->
       </div>
-      
+
+      <div class="text-center bg-success goToWebsite">
+        <a href="/">
+          <i class="fa fa-external-link" aria-hidden="true"></i>
+          {{trans('admin.goWebsite')}}
+        </a>
+      </div>
 @endsection

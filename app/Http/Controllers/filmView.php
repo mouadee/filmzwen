@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Film;
+use App\Comments;
+use App\User;
+use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 
 class filmView extends Controller
@@ -12,11 +15,10 @@ class filmView extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         $film = Film::find($id);
-      
-        return view('filmView', compact('film'));
+        return view('filmView', compact('film', 'user'));
     }
 
     /**
@@ -49,9 +51,11 @@ class filmView extends Controller
     public function show($id)
     {
         $film = Film::find($id);
+        $comments = Comments::get();
+        $user = User::get();
 
 
-        return view('filmView',compact('film'));
+        return view('filmView',compact('film', 'comments', 'user'));
     }
 
     /**

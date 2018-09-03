@@ -18,15 +18,14 @@ class usersDtatablesDataTable extends DataTable
     {
         return datatables($query)
             ->addColumn('edit', 'admin.admins.btn.edit_user')
-            ->editColumn('updated_at', '{{ admin()->user()->updated_at->diffForHumans() }}')
-            ->editColumn('created_at', '{{ admin()->user()->created_at->diffForHumans() }}')
+            //->editColumn('created_at', '{{ created_at->diffForHumans() }}')
             ->addColumn('delete', 'admin.admins.btn.delete_user')
             ->rawColumns([
                 'edit',
                 'delete',
             ]);
-            
-    }   
+
+    }
 
     /**
      * Get query source of dataTable.
@@ -55,15 +54,15 @@ class usersDtatablesDataTable extends DataTable
                         'dom' => 'Blfrtip',
                         'lenghtMenu' => [[10,25,50,100], [10,25,50,'All Records']],
                         'buttons' => [
-                            ['extend' => 'print', 'className'=>'btn btn-primary', 'text' => '<i class="fa fa-print"></i>'.trans("admin.print")],
-                            ['extend' => 'csv', 'className'=>'btn btn-success', 'text' => '<i class="fa fa-file"></i>' .trans("admin.ex_csv")],
-                            ['extend' => 'reload', 'className'=>'btn btn-danger', 'text' => '<i class="fa fa-refresh"></i>' .trans("admin.Reload")],
+                            ['extend' => 'print', 'className'=>'btn btn-primary', 'text' => '<i class="fa fa-print"></i>'.' '.trans("admin.print")],
+                            ['extend' => 'csv', 'className'=>'btn btn-success', 'text' => '<i class="fa fa-file"></i>'. ' ' .trans("admin.ex_csv")],
+                            ['extend' => 'reload', 'className'=>'btn btn-danger', 'text' => '<i class="fa fa-refresh"></i>'.' '.trans("admin.Reload")],
                             ['text' => '<a class="fa fa-plus" href="{{aurl("create_user")}}"></a>' . trans('admin.Create_user'),'className'=>'btn btn-info',"action"=>"function(){
                                     window.location.href = '" .\URL::current(). "/create'
                             }"],
                         ],
-                        
-                        'language' => [ 
+
+                        'language' => [
                             'sProcessing'     => trans('admin.sProcessing'),
                             'sLengthMenu'     => trans('admin.sLengthMenu'),
                             'sZeroRecords'    => trans('admin.sZeroRecords'),

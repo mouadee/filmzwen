@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Play;
+use App\Comments;
+use App\Film;
+use App\User;
 
 
 class player extends Controller
@@ -13,16 +16,13 @@ class player extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        
-        //$plays = Play::find();
+        $film = Film::find($id);
         
         $play = Play::find($id);
-        //->id;
-      
-        return view('player')->with('play', $play);
-                        
+
+        return view('player', compact('film', 'play'));            
     }
 
     /**
@@ -55,9 +55,12 @@ class player extends Controller
     public function show($id)
     {
         $play = Play::find($id);
+        $comment = Comments::get();
 
+        $film = Film::find($id);
+        $user = User::get();
 
-        return view('player',compact('play'));
+        return view('player',compact('play','comment', 'user', 'film'));
 
     } 
 

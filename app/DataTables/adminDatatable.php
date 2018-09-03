@@ -59,10 +59,10 @@ class adminDatatable extends DataTable
                         'dom' => 'Blfrtip',
                         'lenghtMenu' => [[10,25,50,100], [10,25,50,'All Records']],
                         'buttons' => [
-                            ['extend' => 'print', 'className'=>'btn btn-primary', 'text' => '<i class="fa fa-print"></i>'.trans("admin.print")],
-                            ['extend' => 'csv', 'className'=>'btn btn-success', 'text' => '<i class="fa fa-file"></i>' .trans("admin.ex_csv")],
-                            ['extend' => 'reload', 'className'=>'btn btn-danger', 'text' => '<i class="fa fa-refresh"></i>' .trans("admin.Reload")],
-                            ['text' => '<i class="fa fa-plus"></i>' . trans('admin.Create_Admin'),'className'=>'btn btn-info',"action"=>"function(){
+                            ['extend' => 'print', 'className'=>'btn btn-primary', 'text' => '<i class="fa fa-print"></i>'.' '.trans("admin.print")],
+                            ['extend' => 'csv', 'className'=>'btn btn-success', 'text' => '<i class="fa fa-file"></i>'.' '.trans("admin.ex_csv")],
+                            ['extend' => 'reload', 'className'=>'btn btn-danger', 'text' => '<i class="fa fa-refresh"></i>'.' ' .trans("admin.Reload")],
+                            ['text' => '<i class="fa fa-plus"></i>'.' '. trans('admin.Create_Admin'),'className'=>'btn btn-info',"action"=>"function(){
                                     window.location.href = '" .\URL::current(). "/create'
                             }"],
                         ],

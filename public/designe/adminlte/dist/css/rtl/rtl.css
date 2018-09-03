@@ -2,3 +2,7 @@
 .sidebar-menu li .label, .sidebar-menu li .badge {
 	margin-top: -15px !important;
 }
+.goToWebsite a {
+	padding: 10px;
+	margin: 10px;
+}

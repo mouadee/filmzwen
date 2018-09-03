@@ -17,10 +17,10 @@ use App\Film;
 
 Route::get('/', function () {
 
-	$plays = Play::get();
-	$film = Film::get();
+    $plays = Play::paginate(6);
+    $film = Film::get();
 
-	return view('welcome', compact('plays', 'film'));
+    return view('welcome', compact('plays', 'film'));
 });
 
 
@@ -31,8 +31,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('films', 'films@films');
 Route::get('series', 'series@index');
 Route::get('chPass', 'chPass@index');
-Route::get('profile', 'editProfile@index');
+//Route::get('profile', 'editProfile@index');
+Route::resource('profile', 'editProfile');
 Route::get('ar_films', 'arFilms@index');
+
+Route::resource('comments', 'usersComment');
+Route::post('/comments/{film}', 'usersComment@store')->name('comments.store');
+
 
 Route::get('plays', 'player@index')->name('play.index');
 Route::get('plays/{id}', 'player@show')->name('play.show');
@@ -44,3 +49,9 @@ Route::post('chPass', 'chPass@store');
 
 Route::post('/user/update/{id}', 'editProfile@update');
 
+//Login With Socialite Route :
+Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
+Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
+
+Route::get('login/google', 'Auth\googleAuth@redirectToProvider')->name('google.login');
+Route::get('login/google/callback', 'Auth\googleAuth@handleProviderCallback');

@@ -66,7 +66,7 @@
                     <label for="gender">الجنس</label>
                     <select id="gender" name="gender" value="{{Auth::user()->gender}}">
                         @foreach($genders as $key => $value)
-                        <option value="{{$key}}" {{Auth::user()->gender == $key ? 'selected' : ''}}>{{$value}}</option>
+                            <option value="{{$key}}" {{Auth::user()->gender == $key ? 'selected' : ''}}>{{$value}}</option>
                         @endforeach
                     </select>
 
@@ -78,4 +78,32 @@
     </section>
 
 
+    {{-- if all information of the profile was fill successfuly and is valide and session give success oredr --}}
+    @if(session('success'))
+
+        <script type="text/javascript">
+            swal({
+                title: "جيد",
+                text: "تم تحديث معلومات العضو بنجاح",
+                icon: "success",
+                button: " رجوع",
+            });
+        </script>
+
+    @endif
+
+
+    {{-- if information is not valide and session give error oredr --}}
+    @if(session('error'))
+
+        <script type="text/javascript">
+            swal({
+                title: "خطأ",
+                text: "تأكد من صحة المعلومات",
+                icon: "error",
+                button: " رجوع",
+            });
+        </script>
+
+    @endif
     @endsection
