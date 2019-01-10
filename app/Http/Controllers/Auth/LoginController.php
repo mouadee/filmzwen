@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Play;
-use Socialite;
+use Laravel\Socialite\Facades\Socialite;
 class LoginController extends Controller
 {
     /*
@@ -53,7 +53,7 @@ class LoginController extends Controller
     {
         $user = Socialite::driver('facebook')->user();
 
-         $user->name;
+        $user->name;
     }
 
 }

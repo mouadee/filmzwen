@@ -17,7 +17,7 @@
         </div>
         <div style="border-left: 1px solid #e8e8e8;height: 424px;float: right;margin-top: 59px;"></div>
         <div class="infos_edit">
-            <img src="{{ asset('imgs') }}/avatars/default.png" alt="avatar">
+            <img src="imgs/avatars/{{ Auth::user()->avatar }}" alt="avatar">
             <div class="infos_perso">
                 <span>{{ Auth::user()->name }}</span><br>
             </div>

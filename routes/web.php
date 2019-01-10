@@ -31,7 +31,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('films', 'films@films');
 Route::get('series', 'series@index');
 Route::get('chPass', 'chPass@index');
+
 //Route::get('profile', 'editProfile@index');
+
+
 Route::resource('profile', 'editProfile');
 Route::get('ar_films', 'arFilms@index');
 
@@ -43,7 +46,7 @@ Route::get('plays', 'player@index')->name('play.index');
 Route::get('plays/{id}', 'player@show')->name('play.show');
 Route::get('film/{id}', 'filmView@show')->name('film.show');
 
-Route::post('profile', 'editProfile@store');
+//Route::post('profile', 'editProfile@store');
 Route::post('chPass', 'chPass@store');
 //Route::resource('comment', 'comment');
 
@@ -55,3 +58,18 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
 
 Route::get('login/google', 'Auth\googleAuth@redirectToProvider')->name('google.login');
 Route::get('login/google/callback', 'Auth\googleAuth@handleProviderCallback');
+
+
+// Analytics Routes
+Route::resource('analytics', 'analyse');
+
+// Errors routes
+Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
+Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
+
+
+Route::resource('messenger', 'messenger');
+
+/*Route::group(['before' => 'auth'], function () {
+    return redirect('/');
+});*/

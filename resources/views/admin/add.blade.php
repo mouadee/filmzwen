@@ -14,6 +14,7 @@ min-height: 98px;
 }</style>
 <div class="box">
   <div class="box-header">
+    <h3 class="text-center alert-success addSeries">{{trans('admin.add')}}</h3>
     <form class="form-horizontal" action="{{aurl('add')}}" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="box-body">

@@ -1,14 +1,37 @@
 @extends('master')
-
+@php($title = $film->Film_title)
+@section('title', ' - ' . $title)
 @section('content')
-
+    <style>
+        footer {
+            width: 100vw;
+            position: absolute;
+            right: 0;
+            padding: 2px;
+        }
+        footer img {
+            position: absolute;
+            left: 30px;
+        }
+        footer span {
+            text-align: center;
+        }
+        footer span {
+            text-align: center;
+            margin: 10px 81px;
+            display: block;
+        }
+        footer .social {
+            margin: 16px 0;
+        }
+    </style>
     <div class="slider">
         <!--  Carousel  -->
 
         <div class="carousel">
             <img class="logo-youtube" src="{{asset('imgs/youtube-logo.png')}}" alt="youtube logo">
-
-            <iframe class="img-slide" width="560" height="315" src="https://www.youtube.com/embed/{{$film->Youtube_url}}?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> <h4 class="trailler-title">{{$film->Film_title}} | OFFICIEL TRAILER</h4>
+            <iframe class="img-slide" width="560" height="315" src="https://www.youtube.com/embed/{{$film->Youtube_url}}?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <h4 class="trailler-title">{{$film->Film_title}} | OFFICIEL TRAILER</h4>
         </div>
 
         <img src="{{asset('imgs/adset.png')}}" class="adsetonleft" alt="adset">
@@ -60,18 +83,18 @@
                 </div>
 
                 <hr class="player-hr">
-
-                <div class="feedback-share">
-
-                    <div class="feedback">
+                <div class="feedback feedbacking">
                     <span class="givefeed">
                         <p>قيم <p/>
                         <p> هذا</p>
                     </span>
-                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                        <span>4.5</span>
-                        <i class="fa fa-heart" aria-hidden="true"></i>
-                    </div>
+                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                    <span>4.5</span>
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                </div>
+                <div class="feedback-share">
+
+
                     <div class="errors-report">
                         <a href="">
                             <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
@@ -162,13 +185,26 @@
 
 
 
-        <div class="comment-users"><hr>
-            <h3>التعليقات</h3>
-            <hr>
+        <div class="comment-users">
+            {{--<h3 class="text-center">التعليقات</h3>--}}
+            <hr class="hr-text text-center" data-content="التعليقات">
+
 
 
                 @guest
                 <h5 class="text-center">قم بتسجيل الدخول للتفاعل و وضع تعليق</h5>
+                <div class="social-login social-login-film text-center">
+                    <h6>: أو قم بالتسجيل عبر</h6>
+                            <a href="../login/facebook" class="btn btn-success facebook">
+                                <span>باستخدام فيسبوك</span>
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+
+                    <a href="{{route('google.login')}}" class="btn btn-danger google">
+                        <span>باستخدام جوجل</span>
+                        <i class="fa fa-google" aria-hidden="true"></i>
+                    </a>
+                </div>
             @else
                 <span class="n-comment">
                 <b>{{\App\Comments::count()}}</b>

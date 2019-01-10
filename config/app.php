@@ -164,8 +164,11 @@ return [
         App\Providers\RouteServiceProvider::class,
         
         // my providers
-        Intervention\Image\ImageServiceProvider::class
+        Intervention\Image\ImageServiceProvider::class,
         //Collective\Html\HtmlServiceProvider::class,
+
+        //Laravel analyse
+        Spatie\Analytics\AnalyticsServiceProvider::class,
 
     ],
 
@@ -216,11 +219,12 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'Image' => Intervention\Image\Facades\Image::class
+        'Image' => Intervention\Image\Facades\Image::class,
 
-        //My Eliasses
+        // ** My Aliases ***
         //'Form' => Collective\Html\FormFacade::class,
         //'Html' => Collective\Html\HtmlFacade::class,
+        'Analytics' => Spatie\Analytics\AnalyticsFacade::class
 
     ],
 

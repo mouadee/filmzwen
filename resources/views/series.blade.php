@@ -1,5 +1,5 @@
 @extends('master')
-
+@section('title', '- مسلسلات')
 @section('content')
 
     <div class="slider">
@@ -13,12 +13,12 @@
 
         <!--  Carousel  -->
         <div class="carousel">
-            <img class="img-slide" src="imgs/ee.png" alt="home">
+            <img class="img-slide" src="{{asset('imgs/ee.jpg')}}" alt="home">
         </div>
 
         <!--  Button Watch  -->
-        <div class="watch">
-            <button class="btn btn-danger" type="submit">شاهد الان مجانا</button>
+        <div>
+            <button class="btn btn-danger watch">شاهد الان مجانا</button>
         </div>
     </div>
 
@@ -62,7 +62,7 @@
                 <li>
                     <div class="meniature_content">
                         <img src='{{$player->Film_poster}}' alt="poster">
-                        <ul class="film_meniature_infos">
+                        <ul class="series-imgs-infos">
                             <li>{{$player->Film_title}}</li>
                             <li>{{$player->Film_Hero}}</li>
                             <li>{{$player->Film_types}}</li>

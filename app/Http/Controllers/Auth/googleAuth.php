@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
 use Socialite;
 
@@ -24,8 +23,8 @@ class googleAuth extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('google')->user();
+        $user = Socialite::driver('google')->stateless()->user();
 
-        $user->name;
+        return $user->name;
     }
 }

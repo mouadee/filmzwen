@@ -1,4 +1,5 @@
 @extends('master')
+@section('title', '- أفلام')
 @section('films')
     <div class="slider">
         <!-- Search Area -->
@@ -11,12 +12,12 @@
 
         <!--  Carousel  -->
         <div class="carousel">
-            <img class="img-slide" src="imgs/ee.png" alt="home">
+            <img class="img-slide" src="imgs/ee.jpg" alt="home">
         </div>
 
         <!--  Button Watch  -->
-        <div class="watch">
-            <button class="btn btn-danger" type="submit">شاهد الان مجانا</button>
+        <div class="">
+            <button class="btn btn-danger watch" type="submit">شاهد الان مجانا</button>
         </div>
     </div>
 
@@ -38,7 +39,6 @@
                 <option value="all_type">خيال علمي</option>
             </select>
             <select>
-                <
                 <option value="" disabled selected>السنة</option>
                 <option value="2018">2018</option>
                 <option value="2017">2017</option>
@@ -62,7 +62,7 @@
                     <li>
                         <div class="meniature_content">
                             <img src='{{$films->Film_poster}}' alt="poster">
-                            <ul class="film_meniature_infos">
+                            <ul class="film_page_meniature_infos">
                                 <li>{{$films->Film_title}}</li>
                                 <li>{{$films->Film_Hero}}</li>
                                 <li>{{$films->Film_types}}</li>
@@ -75,7 +75,7 @@
                 @endif
             @endforeach
         </ul>
-        {!! $film->render() !!}
+        {{--{!! $film->render() !!}--}}
     </section>
 
 

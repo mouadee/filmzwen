@@ -7,6 +7,12 @@
       // option: value,
       // option: value
     });
+      /* JQuery Code For User Profile Page */
+
+
+      $('.fa-user-plus').on('click', function () {
+          $(this).attr('class', 'far fa-user-clock')
+      });
   });
 
 $(document).ready(function(){
@@ -41,7 +47,7 @@ $(function () {
 
         $('#close').on('click', function () {
 
-            document.getElementById('side-menu').style.width = '60px';
+            document.getElementById('side-menu').style.width = '0px';
             $('.infos-perso').css({"display": "none"});
             $('.sub-nav').css({"display": "none"});
             $('.years_production').css({"display": "none"});
@@ -91,11 +97,5 @@ $(document).mouseup(function (e)
 
 // });
 
-new Vue({
-    el:'#app',
-    data: {
-        message:'salut les gens',
-        link:'https://google.com'
 
-    }
-})
+

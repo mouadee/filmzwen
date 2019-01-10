@@ -1,5 +1,5 @@
 @extends('master')
-
+@section('title', '- إنشاء حساب')
 @section('register')
     <style>
         footer {
@@ -7,43 +7,46 @@
             top: 786px;
         }
     </style>
-    <form action="" method="post" class="register_inos">
+    <form action="" method="post" class="register_inos" autocomplete="off">
 
         {{ csrf_field() }}
 
+        <h2 class="newAccount">إنشاء حساب جديد</h2>
+        <div class="clear"></div>
         <input type="text" placeholder="إسم المستخدم" name="username" value="{{ old('username') }}" autofocus>
-        <label for="">إسم المستخدم</label><br>
+        <label for=""><span class="requiredDanger">*</span>إسم المستخدم</label><br>
 
 
         <input type="text" placeholder="الإسم الكامل" name="name"  value="{{ old('name') }}">
-        <label for="">الإسم الكامل</label><br>
+        <label for=""><span class="requiredDanger">*</span>الإسم الكامل</label><br>
 
 
         <input type="email" placeholder="البريد الإلكتروني" name="email"  value="{{ old('email') }}">
-        <label for="">البريد الإلكتروني</label><br>
+        <label for=""><span class="requiredDanger">*</span>البريد الإلكتروني</label><br>
 
 
         <input type="password" placeholder="كلمة المرور" name="password" value="{{ old('password') }}">
-        <label for="">كلمة المرور</label><br>
+        <label for=""><span class="requiredDanger">*</span>كلمة المرور</label><br>
 
 
         <input name="password_confirmation" type="password" placeholder="أعد إدخال كلمة المرور" value="{{ old('password_confirmation') }}">
-        <label>أعد إدخال كلمة المرور</label><br>
+        <label><span class="requiredDanger">*</span>أعد إدخال كلمة المرور</label><br>
 
 
         <input type="submit" value="تسجيل" class="save_infos" name="submit">
 
     </form>
     <div class="login_with">
-        <h5>: أو قم بالتسجيل عبر</h5>
-        <button class="btn btn-success facebook">
-            <span>الدخول عبر فيسبوك</span>
+
+        <hr class="hr-text" data-content="أو">
+        <a class="btn btn-success facebook" href="/login/facebook">
+            <span>بإستخدام فيسبوك</span>
             <i class="fa fa-facebook" aria-hidden="true"></i>
-        </button>
-        <button class="btn btn-danger google">
-            <span>الدخول عبر جوجل</span>
+        </a>
+        <a class="btn btn-danger google" href="/login/google">
+            <span>بإستخدام جوجل</span>
             <i class="fa fa-google" aria-hidden="true"></i>
-        </button>
+        </a>
     </div>
     <script>
         var has_errors = {{ $errors->count() > 0 ? 'true' : 'false' }};

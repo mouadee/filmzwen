@@ -1,5 +1,5 @@
 @extends('master')
-
+@section('title', '- الصفحة الرأيسية')
 @section('content')
 
     <!-- Search Area -->
@@ -12,8 +12,8 @@
     </div>
 
     <!--  Carousel for the Home page  -->
-    <div class="carousel">
-        <img class="img-slide" src="/imgs/ee.png" alt="home">
+    <div class="carouselItem">
+        <img class="img-slide" src="/imgs/ee.jpg" alt="home">
     </div>
 
     <!--  Button Watch  -->
@@ -21,24 +21,24 @@
 
     <div class="carousel">
         <a class="carousel-item" href="#">
-            <img src="imgs/run.jpg"><br>
-            <span class="carousel-title">Breaking Bad</span>
+            <img src="imgs/Mandy.jpg"><br>
+            <span class="carousel-title">Mandy</span>
         </a>
         <a class="carousel-item" href="#">
-            <img src="imgs/ll.jpg"><br>
-            <span class="carousel-title">Breaking Bad</span>
+            <img src="imgs/panick.jpg"><br>
+            <span class="carousel-title">Panick</span>
         </a>
         <a class="carousel-item" href="#">
-            <img src="imgs/kk.jpg"><br>
-            <span class="carousel-title">Breaking Bad</span>
+            <img src="imgs/worthy.jpg"><br>
+            <span class="carousel-title">المختارون</span>
         </a>
         <a class="carousel-item" href="#">
-            <img src="imgs/run.jpg"><br>
-            <span class="carousel-title">Breaking Bad</span>
+            <img src="imgs/Daredevil.jpg"><br>
+            <span class="carousel-title">Daredevil</span>
         </a>
         <a class="carousel-item" href="#">
-            <img src="imgs/run.jpg"><br>
-            <span class="carousel-title">Breaking Bad</span>
+            <img src="imgs/Manifest.jpg"><br>
+            <span class="carousel-title">Manifest</span>
         </a>
         <br><br>
     </div>
@@ -54,74 +54,76 @@
                     <div class="meniature_content">
                         <img src='/imgs/kk.jpg' alt="poster">
                         <ul class="film_meniature_infos">
-                            <li>Breaking Bad</li>
-                            <li>wol nar</li>
-                            <li>دراما</li>
-                            <li>2013</li>
-                            <li>9/10</li>
+                            <li>Venom</li>
+                            <li>الانجليزية</li>
+                            <li>اكشن</li>
+                            <li>2018</li>
+                            <li>7.1/10</li>
                         </ul>
                     </div>
-                    <a class="content_name" href="#">Breaking Bad</a></li>
+                    <a class="content_name" href="#">Venom</a></li>
                 <li>
                     <div class="meniature_content">
-                        <img src='/imgs/kk.jpg' alt="poster">
+                        <img src='/imgs/aaa.jpg' alt="poster">
                         <ul class="film_meniature_infos">
-                            <li>Breaking Bad</li>
-                            <li>wol nar</li>
-                            <li>دراما</li>
-                            <li>2013</li>
-                            <li>9/10</li>
+                            <li>The Meg</li>
+                            <li>الانجليزية</li>
+                            <li>اثارة</li>
+                            <li>2018</li>
+                            <li>6.0/10</li>
                         </ul>
                     </div>
-                    <a class="content_name" href="#">Breaking Bad</a></li>
+                    <a class="content_name" href="#">The Meg</a></li>
                 <li>
                     <div class="meniature_content">
-                        <img src='/imgs/kk.jpg' alt="poster">
+                        <img src='/imgs/ropa.jpg' alt="poster">
                         <ul class="film_meniature_infos">
-                            <li>Breaking Bad</li>
-                            <li>wol nar</li>
-                            <li>دراما</li>
-                            <li>2013</li>
-                            <li>9/10</li>
+                            <li>Malicious</li>
+                            <li>الانجليزية</li>
+                            <li>رعب</li>
+                            <li>2018</li>
+                            <li>6.1/10</li>
                         </ul>
                     </div>
-                    <a class="content_name" href="#">Breaking Bad</a></li>
+                    <a class="content_name" href="#">Malicious</a></li>
                 <li>
                     <div class="meniature_content">
-                        <img src='/imgs/kk.jpg' alt="poster">
+                        <img src='/imgs/mille.jpg' alt="poster">
                         <ul class="film_meniature_infos">
-                            <li>Breaking Bad</li>
-                            <li>wol nar</li>
-                            <li>دراما</li>
-                            <li>2013</li>
-                            <li>9/10</li>
+                            <li>Mile 22</li>
+                            <li>الانجليزية</li>
+                            <li>كوميديا</li>
+                            <li>2018</li>
+                            <li>8.0/10</li>
                         </ul>
                     </div>
-                    <a class="content_name" href="#">Breaking Bad</a></li>
+                    <a class="content_name" href="#">Mile 22</a></li>
                 <li>
                     <div class="meniature_content">
-                        <img src='/imgs/kk.jpg' alt="poster">
+                        <img src='/imgs/incl.jpg' alt="poster">
                         <ul class="film_meniature_infos">
-                            <li>Breaking Bad</li>
-                            <li>wol nar</li>
+                            <li>Incredibles 2</li>
+                            <li>الانجليزية</li>
                             <li>دراما</li>
-                            <li>2013</li>
-                            <li>9/10</li>
+                            <li>2018</li>
+                            <li>8.0/10</li>
                         </ul>
                     </div>
-                    <a class="content_name" href="#">Breaking Bad</a></li>
+                    <a class="content_name" href="#">Incredibles 2</a>
+                </li>
                 <li>
                     <div class="meniature_content">
-                        <img src='/imgs/kk.jpg' alt="poster">
+                        <img src='/imgs/mission.jpg' alt="poster">
                         <ul class="film_meniature_infos">
-                            <li>Breaking Bad</li>
-                            <li>wol nar</li>
-                            <li>دراما</li>
-                            <li>2013</li>
-                            <li>9/10</li>
+                            <li>Fallout</li>
+                            <li>الانجليزية</li>
+                            <li>مغامرة</li>
+                            <li>2018</li>
+                            <li>8.1/10</li>
                         </ul>
                     </div>
-                    <a class="content_name" href="#">Breaking Bad</a></li>
+                    <a class="content_name" href="#">Fallout</a>
+                </li>
 
                 {{-- <span class="title_categorie">الأكثر مشاهدة</span>
                 @foreach ($plays as $player)
@@ -163,7 +165,7 @@
                     @endif
                 @endforeach
             </ul>
-            <a href="ar_films" class="more_categorie">
+            <a href="films" class="more_categorie">
                 <i class="fa fa-circle" aria-hidden="true"></i>
                 <i class="fa fa-circle" aria-hidden="true"></i>
                 <i class="fa fa-circle" aria-hidden="true"></i></a>

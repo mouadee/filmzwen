@@ -59,7 +59,7 @@ class addContent extends Controller
             $play->Film_ring            = $request->Film_ring;
             $play->Film_productionYears = $request->Film_productionYears;
             $play->Film_types           = $request->Film_types;
-            $Film_poster                = request()->file('Film_poster')->store('public/users');
+            $Film_poster                = request()->file('Film_poster')->store('app/public/users');
             $play->Film_poster          = \Storage::disk('local')->url($Film_poster);            
             $play->save();
             return redirect()->back();

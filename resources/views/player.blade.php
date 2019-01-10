@@ -1,5 +1,6 @@
 @extends('master')
-
+@php($title = $play->Film_title)
+@section('title', ' - ' . $title)
 @section('content')
 
     <style>
@@ -20,6 +21,18 @@
             width: 100vw;
             position: absolute;
             right: 0;
+            padding: 2px;
+        }
+        footer img {
+            position: absolute;
+            left: 30px;
+
+        footer span {
+            float: left;
+            margin: 0 100px;
+        }
+        footer .social {
+            margin: 16px 0;
         }
     </style>
 
@@ -28,8 +41,9 @@
 
         <div class="carousel">
             <img class="logo-youtube" src="{{asset('imgs/youtube-logo.png')}}" alt="youtube logo">
-
-            <iframe class="img-slide" width="560" height="315" src="https://www.youtube.com/embed/{{$play->Youtube_url}}?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> <h4 class="trailler-title">{{$play->Film_title}} | OFFICIEL TRAILER</h4>
+            {{--<iframe width="560" height="315" src="https://www.youtube.com/embed/{{$play->Youtube_url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>--}}
+            <iframe class="img-slide" width="560" height="315" src="https://www.youtube.com/embed/{{$play->Youtube_url}}?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <h4 class="trailler-title">{{$play->Film_title}} | OFFICIEL TRAILER</h4>
         </div>
 
         <img src="{{asset('imgs/adset.png')}}" class="adsetonleft" alt="adset">
@@ -122,7 +136,7 @@
                        data-hashtags="example,demo"
                        data-via="twitterdev"
                        data-related="twitterapi,twitter">
-                        Tweet
+
                     </a>
                     <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
                     <a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a>
@@ -135,7 +149,6 @@
     <div class="watch_video">
         <div class="player-v">
             <iframe src="{{$play->Film_link}}" scrolling="no" frameborder="0" width="700" height="430" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
-
         </div>
         <div class="quality">
             <div class="for-watching">
@@ -209,24 +222,20 @@
 
 
         <div class="comment-users"><hr>
-            <h3>التعليقات</h3>
+            <h3 class="text-center">التعليقات</h3>
             <hr>
             @guest
                 <h5 class="text-center">قم بتسجيل الدخول للتفاعل و وضع تعليق</h5>
-                <div class="social-login text-center">
+                <div class="social-login social-login-film text-center">
                     <h6>: أو قم بالتسجيل عبر</h6>
-                    <a href="../login/facebook">
-                        <button class="btn btn-success facebook">
+                    <a href="../login/facebook" class="btn btn-success facebook">
                             <span>باستخدام فيسبوك</span>
                             <i class="fa fa-facebook" aria-hidden="true"></i>
-                        </button>
                     </a>
 
-                    <a href="{{route('google.login')}}">
-                        <button class="btn btn-danger google">
+                    <a href="{{route('google.login')}}" class="btn btn-danger google">
                             <span>باستخدام جوجل</span>
                             <i class="fa fa-google" aria-hidden="true"></i>
-                        </button>
                     </a>
                 </div>
             @else

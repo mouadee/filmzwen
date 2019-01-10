@@ -1,4 +1,5 @@
 @extends('master')
+@section('title', ' - ' . 'حسابي')
 @section('content')
     <style>
         footer {
@@ -22,30 +23,31 @@
             <div class="show-image">
                 <img id="edit-img" src="imgs/avatars/{{ Auth::user()->avatar }}" alt="avatar">
                 <form enctype="multipart/form-data" action="/profile" method="POST">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                  <span class="select-wrapper">
-                      <input name="avatar" type="file" value="upload" onchange="this.form.submit()">
-                  </span>
-
-
+                    @csrf
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <span class="select-wrapper">
+                    <input name="avatar" type="file" value="upload" onchange="this.form.submit()">
+                    </span>
                 </form>
             </div>
 
 
 
+            {{-- The Gender Variable Defined With A Php tag  --}}
+                @php($gender =  [
+                            "ذكر"=>'ذكر',
+                            "أنثى"=>'أنثى',
+                            "أخر"=>'أخر'
+                ])
+            {{--The end of defining gender variable --}}
+
             <div class="infos_perso">
                 <span>{{ Auth::user()->name }}</span><br>
-                {{--<form enctype="multipart/form-data" action="/profile" method="POST">إختر--}}
-                    {{--<input class="inputfile" type="file" name="avatar">--}}
-                    {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
-                    {{--<input type="submit" value="إختر" class="pull-right btn btn-sm btn-primary">--}}
-                {{--</form>--}}
             </div>
             <form method="post" id="change_infos" action="{{url('/user/update/'.Auth::user()->id)}}">
-               
+
                {{csrf_field()}}
 
-               
                 <label for="name">الإسم الكامل</label>
                 <input id="name" name="name" value="{{Auth::user()->name}}" type="text" placeholder="{{ Auth::user()->name }}">
 
@@ -64,8 +66,10 @@
                     <input id="country" name="country" type="text" value="{{Auth::user()->country}}" placeholder="{{ Auth::user()->country }}" style="text-align: right">
 
                     <label for="gender">الجنس</label>
+
+
                     <select id="gender" name="gender" value="{{Auth::user()->gender}}">
-                        @foreach($genders as $key => $value)
+                        @foreach($gender as $key => $value)
                             <option value="{{$key}}" {{Auth::user()->gender == $key ? 'selected' : ''}}>{{$value}}</option>
                         @endforeach
                     </select>

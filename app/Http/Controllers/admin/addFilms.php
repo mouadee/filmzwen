@@ -53,7 +53,7 @@ class addFilms extends Controller
             $film->Film_productionYears = $request->Film_productionYears;
             $film->Film_types           = $request->Film_types;
             $film->Film_language        = $request->Film_language;
-            $Film_poster                = request()->file('Film_poster')->store('public/users');
+            $Film_poster                = request()->file('Film_poster')->store('app/public/users');
             $film->Film_poster          = \Storage::disk('local')->url($Film_poster);            
             $film->save();
             session()->flash('success', trans('admin.record_added'));
