@@ -67,8 +67,10 @@ Route::resource('analytics', 'analyse');
 Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
 Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
 
-
-Route::resource('messenger', 'messenger');
+Route::get('/login', function () {
+    return redirect()->route('404');
+});
+Route::resource('messenger', 'messenger')->middleware('auth');
 
 /*Route::group(['before' => 'auth'], function () {
     return redirect('/');

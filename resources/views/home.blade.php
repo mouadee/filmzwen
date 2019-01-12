@@ -42,7 +42,6 @@
         display: none;
     }
 </style>
-
     <div class="container">
         <div class="row">
             <div class="homePageProfile col-md-4">
@@ -54,7 +53,7 @@
                 </ul>
                 <table class="table">
                     <tr>
-                        <th scope="col"><a><i class="far fa-user-plus" title="إضافة كصديق"></i></a></th>
+                        <th scope="col"><a><i class="far fa-rss" title="متابعة"></i></a></th>
                         <th scope="col"><a href="messenger"><i class="fab fa-facebook-messenger" title="إرسال رسالة"></i></a></th>
                         <th scope="col"><a href=""><i class="far fa-bell" title="إشعارات"></i></a></th>
                         <th scope="col"><a href=""><i class="far fa-tv" title="مشاهدة مع صديق"></i></a></th>
@@ -78,7 +77,8 @@
                     <b>نقاط السمعة</b>
                 </div>
                 <div class="userEditPostAndStatus">
-                    <form action="" method="post">
+                    <form action="{{ url('home') }}" method="post">
+                        @csrf
                         <label for="UserPublishStatus" class="text-right UserPublishStatus">مذا يخطر في بالك ؟<i class="fal fa-edit"></i></label>
                         <textarea id="UserPublishStatus" class="textEditorUserPublishStatus" placeholder=".. أكتب شيأ" ></textarea>
                         <button type="submit" class="btn publishStatusUserButton">نشر</button>
@@ -98,7 +98,10 @@
                         <li><a href=""><i class="fal fa-thumbs-up"></i></a></li>
                     </ul>
                     <form action="" method="post">
+                        @csrf
                         <textarea name="userProfileComment" id="userProfileComment" cols="24" rows="2" placeholder="..أكتب تعليق"></textarea>
+                        <i class="fal fa-paper-plane iconSendingComment"></i>
+                        <input class="sendComment" type="submit" value="">
                     </form>
                 </div>
             </div>

@@ -41,11 +41,11 @@
         <hr class="hr-text" data-content="أو">
         <a class="btn btn-success facebook" href="/login/facebook">
             <span>بإستخدام فيسبوك</span>
-            <i class="fa fa-facebook" aria-hidden="true"></i>
+            <i class="fab fa-facebook-f"></i>
         </a>
         <a class="btn btn-danger google" href="/login/google">
             <span>بإستخدام جوجل</span>
-            <i class="fa fa-google" aria-hidden="true"></i>
+            <i class="fab fa-google"></i>
         </a>
     </div>
     <script>

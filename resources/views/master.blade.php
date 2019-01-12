@@ -157,11 +157,11 @@
                     <div class="social">
                         <button class="btn btn-success facebook" type="submit">
                             <span>الدخول عبر فيسبوك</span>
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            <i class="fab fa-facebook-f"></i>
                         </button>
                         <button class="btn btn-danger google" type="submit">
                             <span><b>+</b>الدخول عبر جوجل </span>
-                            <i class="fa fa-google-plus" aria-hidden="true"></i>
+                            <i class="fab fa-google"></i>
                         </button>
                     </div>
                 </div>

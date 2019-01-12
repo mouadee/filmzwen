@@ -10,8 +10,8 @@
       /* JQuery Code For User Profile Page */
 
 
-      $('.fa-user-plus').on('click', function () {
-          $(this).attr('class', 'far fa-user-clock')
+      $('.fa-rss').on('click', function () {
+          $(this).attr('class', 'fas fa-rss')
       });
   });
 
