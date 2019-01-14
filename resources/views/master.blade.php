@@ -2,6 +2,7 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
+    <meta name="description" content="فيلم زوين | منصة لعرض جديد الأفلام و المسلسلات العربية و الأجنبية و الكرتونية بشكل تفاعلي مميز و المشاركة بشكل إجنماعي">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
@@ -48,6 +49,7 @@
         </div>
         @endauth
 
+        
 
         <div class="liste-option">
             <a href="/">
