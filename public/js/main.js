@@ -97,5 +97,7 @@ $(document).mouseup(function (e)
 
 // });
 
-
-
+  let UserPublishStatus = document.getElementById("UserPublishStatus");
+  let userProfileComment = document.getElementById("userProfileComment");
+    autosize(userProfileComment);
+    autosize(UserPublishStatus);

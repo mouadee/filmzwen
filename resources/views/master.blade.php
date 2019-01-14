@@ -49,7 +49,7 @@
         </div>
         @endauth
 
-        
+
 
         <div class="liste-option">
             <a href="/">
@@ -247,9 +247,10 @@
 <script src="{{ asset('js/jquery.waterwheelCarousel.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/jquery.nice-select.js') }}"></script>
-<script src="{{ asset('js/main.js') }}"></script>
+<script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="{{ asset('js/materialize.min.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 <!--<script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>-->
 </body>
 </html>

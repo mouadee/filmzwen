@@ -1,6 +1,7 @@
 @extends('master')
 @section('title', ' - ' . 'الصفحة الشخصية')
 @section('content')
+
 <style>
     .full-height {
         height: 100vh;
@@ -80,7 +81,7 @@
                     <form action="{{ url('home') }}" method="post">
                         @csrf
                         <label for="UserPublishStatus" class="text-right UserPublishStatus">مذا يخطر في بالك ؟<i class="fal fa-edit"></i></label>
-                        <textarea id="UserPublishStatus" class="textEditorUserPublishStatus" placeholder=".. أكتب شيأ" ></textarea>
+                        <textarea id="UserPublishStatus" class="textEditorUserPublishStatus" placeholder="أكتب شيأ .." ></textarea>
                         <button type="submit" class="btn publishStatusUserButton">نشر</button>
                     </form>
                 </div>
@@ -99,10 +100,11 @@
                     </ul>
                     <form action="" method="post">
                         @csrf
-                        <textarea name="userProfileComment" id="userProfileComment" cols="24" rows="2" placeholder="..أكتب تعليق"></textarea>
+                        <textarea name="userProfileComment" id="userProfileComment" cols="24" rows="2" placeholder="أكتب تعليق .."></textarea>
                         <i class="fal fa-paper-plane iconSendingComment"></i>
                         <input class="sendComment" type="submit" value="">
                     </form>
+                    <a class="showMoreStatus" href="">عرض المزيد</a>
                 </div>
             </div>
         </div>
